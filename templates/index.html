@@ -1,64 +1,69 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <title>Stock Market Flask Application</title>
+  </head>
+  <body>
 
-    <style>
-        .form {
-            border: 2px solid black;
-            width: 50%;
-            padding: 2%;
-        }
-
-        .mid {
-            margin-left: auto;
-            margin-right: auto;
-
-        }
-    </style>
-
-    <title>Sentiment analysis</title>
-</head>
-
-<body>
+    <h2 class = "h2" style = "text-align:center; margin-top:3%;margin-bottom:3%; padding:10px;">Stock Market Flask Application</h2>
+   
+    <div class = "container " style="max-width:100%;">
     
-    <form class=" form row g-3 mid" action="/next">
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected>Select anaysis type</option>
-            <option value="1">Movie response</option>
-            <option value="2">Sentiment analysis towards a leader</option>
-            <option value="3">Sentiment analysis of a person</option>
-        </select>
-        <br>
-        <div class="input-group mb-3">
-            <input class="form-control" type="text" placeholder="Enter name of subject"
-                aria-label="default input example">
-        </div>
-        <br>
-        <div class="col-auto mid ">
-            <button type="submit" class="btn btn-primary mb-3">Submit</button>
-        </div>
-    </form>
-    <!-- Optional JavaScript; choose one of the two! -->
+      <div class = "row gx-5">
+        <div id = "form-sidebar" class = "col-12 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-4 " style = "text-align:center"> 
+        <div class = "bg-light p-1">
+        <h4 class = " h4 m-1">Options</h4>
+          <hr/>
+          <form method = "post" action = "/"> 
+            <label> Select Stock</label>
+            <br/>
+<select id="stock" name="stock">
+ 
+ {% for st in stock_symbol_names %}
+  <option value="{{st}}">{{st}}</option>
+{% endfor %}
+</select>
+<br/>
+<input type="Date"> </input>
+<br/>
+<input type="text"> </input>
+<input type="submit"> </input>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          </form>
+        </div>
+        </div>
+          <div id = "form-sidebar" class = "col-12 col-lg-8 col-md-8 col-sm-12 col-xs-12 p-4 " style = "text-align:center"> 
+          <div class = "bg-light p-1">
+        <h4 class = " h4 m-1">Chart</h4>
+          <hr/>
+          {{chart_code|safe}}
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    {{demo_script_code|safe}}
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.0.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.0.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.0.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.0.min.js"
         crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
