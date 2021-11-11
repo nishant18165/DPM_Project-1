@@ -8,7 +8,11 @@ def hello_world():
 
 @app.route("/next")
 def next():
-    return render_template('next.html')
+    return render_template('person.html')
+
+@app.route("/error")
+def error():
+    return render_template('error.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
