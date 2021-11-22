@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -13,9 +12,16 @@
 
   <style>
     body {
-      background-color: powderblue;
+      background: linear-gradient(to bottom right, rgb(38, 38, 245), rgb(101, 101, 238), rgb(38, 169, 245), rgb(38, 221, 245), rgb(103, 236, 253), rgb(146, 238, 250), rgb(199, 244, 250)) fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0%;
+      height: 100%;
+
     }
 
+    
     h1 {
       color: blue;
     }
@@ -35,12 +41,16 @@
     }
 
 
-
+    div{
+      
+      padding: 2%;
+      text-align: center;
+    }
 
     .subject_form input[type=text],
     .subject_form input[type=date],
     .subject_form input[type=datetime],
-    .subject_form input[type=time] {
+    .subject_form input[type=number] {
       border-radius: 3px;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -56,25 +66,24 @@
     }
 
     .subject_form input[type=submit] {
-      background: #EB3B88;
-      border: 1px solid #C94A81;
-      padding: 5px 15px 5px 15px;
-      color: #FFCBE2;
-      box-shadow: inset -1px -1px 3px #FF62A7;
-      -moz-box-shadow: inset -1px -1px 3px #FF62A7;
-      -webkit-box-shadow: inset -1px -1px 3px #FF62A7;
-      border-radius: 3px;
-      border-radius: 3px;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      font-weight: bold;
-    }
-
-    body {
-      background-image: url('./static/background.jpg');
-      background-repeat: no-repeat;
-      background-size: 2000px 1000px;
-    }
+    width: 20%;
+    background-color: #35c2c2;
+    color: rgb(29, 28, 28);
+    padding: 14px 20px;
+    margin: auto;
+    margin-top: 2%;
+    
+    border-radius: 4px;
+    cursor: pointer;
+    border-color: blue;
+    
+    border-width: 1px;
+    
+  }
+  .subject_form input[type=submit]:hover {
+    background-color: #0a4bac;
+    
+  }
   </style>
   <title>Subject sentiment analysis</title>
 </head>
@@ -86,26 +95,27 @@
   <h4 class=" h4 m-1" style="text-align:center; margin-top:3%;margin-bottom:3%; padding:10px;">Please Enter the Details
   </h4>
   <hr />
-  <form action="/subject" method="POST" class="subject_form">
+  <div>
+    <form action="/subject" method="POST" class="subject_form">
 
 
-    <label for="amount">Enter the name/title of subject : </label>
-    <input type="text" name="subject@name" id='subject@name'>
+      <label for="subject"><b>Enter the name/title of subject : </b></label>
+      <input type="text" name="subject@name" id='subject@name'>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
-    <label for="amount">Enter the number of tweets you want to analyse</label>
-    <input type="text" name="no@tweet" id='no@tweet'>
+      <label for="amount"><b>Enter the number of tweets you want to analyse</b></label>
+      <input type="number" name="no@tweet" id='no@tweet'>
 
-    <br>
-    <br>
+      <br>
+      <br>
 
 
-    <input type="submit" name="submit" id='submit' value="Show Results">
+      <input type="submit" name="submit" id='submit' value="Show Results">
 
-  </form>
-
+    </form>
+  </div>
 
   <!-- Optional JavaScript -->
   {{demo_script_code|safe}}
