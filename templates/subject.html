@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -11,40 +12,35 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
   <style>
-    
-    
-
-    label{
-      color: rgb(31, 155, 226);
+    body {
+      background-color: powderblue;
     }
+
+    h1 {
+      color: blue;
+    }
+
+    p {
+      color: red;
+    }
+
     .container {
       margin: 10 10 0 0px;
       text-align: center;
     }
 
-    .movie_form {
-      margin: auto;
-      text-align: center;
-      
+    .subject_form {
+      margin-left: 30%;
+      text-align: left;
     }
 
 
-    body {
-  height: 100%;
-  background-image: url("./static/m2.jpg");
-  
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 
-    .movie_form input[type=text],
-    .movie_form input[type=date],
-    .movie_form input[type=datetime],
-    .movie_form input[type=number] {
+    .subject_form input[type=text],
+    .subject_form input[type=date],
+    .subject_form input[type=datetime],
+    .subject_form input[type=time] {
       border-radius: 3px;
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
@@ -59,56 +55,57 @@
       width: 50%;
     }
 
-    input[type=submit] {
-    width: 20%;
-    background-color: #25e092;
-    color: rgb(255, 255, 255);
-    padding: 14px 20px;
-    margin: auto;
-    margin-top: 2%;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    .subject_form input[type=submit] {
+      background: #EB3B88;
+      border: 1px solid #C94A81;
+      padding: 5px 15px 5px 15px;
+      color: #FFCBE2;
+      box-shadow: inset -1px -1px 3px #FF62A7;
+      -moz-box-shadow: inset -1px -1px 3px #FF62A7;
+      -webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+      border-radius: 3px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      font-weight: bold;
+    }
 
-  input[type=submit]:hover {
-    background-color: #07a301;
-  }
-  h2{
-    color: rgb(255, 0, 0)
-  }
-    
+    body {
+      background-image: url('./static/background.jpg');
+      background-repeat: no-repeat;
+      background-size: 2000px 1000px;
+    }
   </style>
-  <title>movie review sentiment analysis</title>
+  <title>Subject sentiment analysis</title>
 </head>
 
 <body>
 
-  
-  <h2 style=" text-align:center;margin-left: 10%; margin-top:3%;margin-bottom:3%; padding:10px;">Welcome to
-    the sentiment analysis page of a movie review</h2>
-
-  <h4 class=" h4 m-1" style="color:salmon;text-align:center;margin-left: 30%; margin-top:3%;margin-bottom:3%; padding:10px;">Please
-    Enter the Details</h4>
+  <h2 class="h2" style="text-align:center; margin-top:3%;margin-bottom:3%; padding:10px;">Welcome to the sentiment
+    analysis page for a subject</h2>
+  <h4 class=" h4 m-1" style="text-align:center; margin-top:3%;margin-bottom:3%; padding:10px;">Please Enter the Details
+  </h4>
   <hr />
-  <form action="/movie" method="POST" class="movie_form">
+  <form action="/subject" method="POST" class="subject_form">
 
-    <br />
-    <br>
-    <label><h5> Enter the name of movie you want to analyse:</h5></label>
-    <input type="text" name="movie_name" id='movie_name'>
 
-    <br>
-    <br>
-    <label for="amount"><h5>Enter the number of tweets you want to analyse:</h5></label>
-    <input type="number" name="number_of_tweet" id='number_of_tweet'>
+    <label for="amount">Enter the name/title of subject : </label>
+    <input type="text" name="subject@name" id='subject@name'>
 
     <br>
     <br>
+
+    <label for="amount">Enter the number of tweets you want to analyse</label>
+    <input type="text" name="no@tweet" id='no@tweet'>
+
+    <br>
+    <br>
+
 
     <input type="submit" name="submit" id='submit' value="Show Results">
 
   </form>
+
 
   <!-- Optional JavaScript -->
   {{demo_script_code|safe}}

@@ -2,85 +2,166 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Sentiment Analysis towards a leader</title>
+  <style>
+    h1 {
+      color: blue;
+    }
+
+    .h4 m-1 {
+      margin: auto;
+    }
+
+    p {
+      color: red;
+    }
+
+    .container {
+      margin: 10 10 0 0px;
+      text-align: center;
+    }
+
+    .personal_form {
+      margin-left: 30%;
+      text-align: left;
+    }
+
+
+
+
+    .personal_form input[type=text],
+    .personal_form input[type=date],
+    .personal_form input[type=datetime],
+    select {
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border: 1px solid #FFC2DC;
+      outline: none;
+      color: #F072A9;
+      padding: 5px 8px 5px 8px;
+      box-shadow: inset 1px 1px 4px #FFD5E7;
+      -moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+      -webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+      background: #FFEFF6;
+      width: 50%;
+    }
+
+    .personal_form input[type=submit] {
+      background: #EB3B88;
+      border: 1px solid #C94A81;
+      padding: 5px 15px 5px 15px;
+      color: #FFCBE2;
+      box-shadow: inset -1px -1px 3px #FF62A7;
+      -moz-box-shadow: inset -1px -1px 3px #FF62A7;
+      -webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+      border-radius: 3px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      font-weight: bold;
+      margin: auto;
+    }
+
+    body {
+      background-image: url("./static/l1.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body,
+    html {
+      margin: 0;
+      height: 100%;
+    }
+
+    label{
+      color: blueviolet;
+      font-size: large;
+      text-align: center;
+      text-decoration: crimson;
+    }
+    div{
+      border: black;
+      border-width: thick;
+      text-align: center;
+      width: 80%;
+      margin: auto;
+      padding: 2%;
+    }
+
+  </style>
+  <title>Sentiment analysis towards a leader</title>
 </head>
 
 <body>
-    
 
-    <h2 class="h2" style="text-align:center; margin-top:3%;margin-bottom:3%; padding:10px;">Sentiment Analysis towards a
-        leader</h2>
+  <h2 class="h2" style="text-align:center;margin-top:30%; margin-top:3%;margin-bottom:3%; padding:10px;">Welcome to the
+    sentiment analysis page of personal tweets</h2>
 
-    <div class="container " style="max-width:100%;p-4">
+  <h3 class="h4 m-1" style="text-align:center;margin-top:30%; margin-top:3%;margin-bottom:3%; padding:10px;">Please
+    Enter the Details</h3>
+  
+  <div>
+    <form action="/leader" method="POST" class="personal_form">
 
-        <div class="row gx-5">
-            <div id="form-sidebar" class="col-12 col-lg-4 col-md-4 col-sm-12 col-xs-12 p-4 " style="text-align:center">
-                <div class="bg-light p-1">
-                    <h4 class=" h4 m-1">Options</h4>
-                    <hr />
-                    <form method="post" action="/">
-                        <label> Select leader</label>
-                        <br />
-                        <select id="leader" name="leader">
-                            <!--
- {% for st in stock_symbol_names %}
-  <option value="{{st}}">{{st}}</option>
-{% endfor %}-->
-                        </select>
-                        <br />
-                        <label> Select time for analysis</label>
-                        <select id="type" name="type">
-                           
-                            <option value="today">Today</option>
-                            <option value="yesterday">Yesterday</option>
-                            <option value="week">Last week</option>
-                        </select>
-                        <br />
-                         <label for="floatingInput">Country name </label>
-                        <input type="country" class="form-control" id="floatingInput" placeholder="India">
-                            
-                          
-                        
-                        <input type="submit"> </input>
 
-                    </form>
-                </div>
-            </div>
-            <div id="form-sidebar" class="col-12 col-lg-8 col-md-8 col-sm-12 col-xs-12 p-4 " style="text-align:center">
-                <div class="bg-light p-1">
-                    <h4 class=" h4 m-1">Chart</h4>
-                    <hr />
-                    {{chart_code|safe}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Optional JavaScript -->
-    {{demo_script_code|safe}}
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.0.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.0.min.js" crossorigin="anonymous"></script>
+      <label><b> Leader name:</b></label>
+      <select id="leader@name" name="leader@name">
+        <option value="none" selected disabled hidden><b>Select an option</b></option>
+        {% for name in name_list%}
+        <option value="{{name}}">{{name}}</option>
+        {% endfor %}
+      </select>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+      <br>
+      <br>
+
+      <label for="Start_Date"><b>Start Date :</b></label>
+      <input type="Date" name="Start_Date" id='Start_Date'>
+
+      <br>
+      <br>
+
+      <label for="End_Date"><b>End Date :</b></label>
+      <input type="Date" name="End_Date" id='End_Date'>
+
+      <br>
+      <br>
+
+
+
+      <input type="submit" name="submit" id='submit' value="Show Results">
+
+    </form>
+  </div>
+
+  <!-- Optional JavaScript -->
+  {{demo_script_code|safe}}
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.0.min.js" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
