@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='show.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='result.css') }}">
   
   <style>
   .btn{
@@ -27,13 +27,13 @@
       background-color: #8dbd8d    
     }
 </style>
-<title>Test page</title>
+<title>Poitive Page</title>
 </head>
 
 <body>
   <div class="dframe2">
     <br>
-    <h4>Top 10 +ve Tweets from recent Tweets</h4>
+    <h4>Top positive Tweets from recent Tweets</h4>
     {% for table2 in table2 %}
     {{ table2|safe }}
     {% endfor %}

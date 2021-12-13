@@ -336,7 +336,7 @@ def subject():
             final_p,final_n = helper(pold)
             p1 = get_polarity_plot(str(subject_name), str(p_type))
             demo_script_code, chart_code = components(p1)
-            return render_template('show.html', chart_code=chart_code, demo_script_code=demo_script_code,
+            return render_template('result.html', chart_code=chart_code, demo_script_code=demo_script_code,
                                table1=[final_p.to_html(
                                    classes='data1', index=False)],
                                table2=[final_n.to_html(classes='data2', index=False)], titles=final_p.columns.values)
@@ -363,7 +363,7 @@ def personal():
             final_p, final_n = helper(pold)
             p1 = get_polarity_plot(str(person_id), str(result_type), 'person')
             demo_script_code, chart_code = components(p1)
-            return render_template('show.html', chart_code=chart_code, demo_script_code=demo_script_code, titles=final_p.columns.values)
+            return render_template('result.html', chart_code=chart_code, demo_script_code=demo_script_code, titles=final_p.columns.values)
         except:
             return render_template('error.html')
 
@@ -391,7 +391,7 @@ def movie():
                 final_p, final_n = helper(pold)
                 p1 = get_polarity_plot(str(tmp[1]), str(result_type))
                 demo_script_code, chart_code = components(p1)
-                return render_template('show.html', chart_code=chart_code, demo_script_code=demo_script_code,
+                return render_template('result.html', chart_code=chart_code, demo_script_code=demo_script_code,
                                        table1=[final_p.to_html(
                                            classes='data1', index=False)],
                                        table2=[final_n.to_html(classes='data2', index=False)], titles=final_p.columns.values)
