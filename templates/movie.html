@@ -29,7 +29,7 @@
     }
 
     .movie_form {
-      margin-left: 10%;
+      margin: auto;
       text-align: left;
     }
 
@@ -39,7 +39,7 @@
       padding: 20px;
       width: 60%;
       margin: auto;
-      margin-top: 8%;
+      margin-top: 10%;
     }
 
 
@@ -60,7 +60,7 @@
     }
 
     .movie_form input[type=submit] {
-      width: 20%;
+      width: 30%;
       background-color: #6d8e8f;
       color: white;
       padding: 14px 20px;
@@ -78,7 +78,9 @@
     body {
       background-image: url('./static/movie.jpg');
       background-repeat: no-repeat;
-      background-size: 2000px 1000px;
+      background-size: cover;
+      height: 100%;
+      margin: 0%;
     }
   </style>
   <title>movie review sentiment analysis</title>
@@ -95,17 +97,23 @@
       <br />
       <br>
       <label>
-        <h5> Enter the name of movie you want to analyse:</h5>
+        <h5> Enter the name of movie name:</h5>
       </label>
       <input type="text" name="movie_name" id='movie_name'>
 
       <br>
       <br>
-      <label>Select the chart type for Sentiment visualization:</label>
+      <label>
+        <h5>Select the chart type for Sentiment visualization:</h5>
+      </label>
        <input type="radio" id="bar" name="p_type" value="Bar Graph">
-       <label>Bar Graph</label>
+       <label>
+        <h6>Bar Graph</h6>
+      </label>
        <input type="radio" id="pie" name="p_type" value="Pie Chart">
-       <label>Pie Chart</label>
+       <label>
+        <h6>Pie Chart</h6>
+      </label>
       <br />
       <br>
 

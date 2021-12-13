@@ -32,23 +32,26 @@
   div {
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 2%;
     width: 60%;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 5%;
 
   }
 
   h2 {
-    margin: 75px 50px 30px 100px;
-    padding: 20px;
+    margin: auto;
+    margin-top: 5%;
+    padding: 2%;
     text-align: center;
   }
 
   body {
     background-image: url('./static/background.jpg');
     background-repeat: no-repeat;
-    background-size: 2000px 1000px;
+    background-size: cover;
+    height: 100%;
+    margin: 0%;
   }
 </style>
 <title>Twitter Data Sentiment Analysis</title>
@@ -64,7 +67,7 @@
       <label for="type"><b>Select Type of Analysis</b></label>
       <select id="sel" name="sel">
         <option value="none" selected disabled hidden>Select topic of analysis</option>
-        <option value="movie">Movie Review</option>
+        <option value="movie">Sentiment towards Movie</option>
         <option value="subject">Sentiment towards a subject</option>
         <option value="person">Sentiment analysis of tweets of person</option>
       </select>
