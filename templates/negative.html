@@ -8,28 +8,39 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='result.css') }}">
-  
+
   <style>
-  .btn{
-    width:fit-content;;
-    background-color: #35c2c2;
-    color: rgb(29, 28, 28);
-    padding: 14px 20px;
-    margin: auto;
-    margin-top: 2%;
-    
-    border-radius: 4px;
-    cursor: pointer;
-    border-color: blue;
-    
-    border-width: 1px;
-    
-  }
-  .btn:hover {
-      background-color: #8dbd8d    
+    .btn {
+      width: fit-content;
+      color: rgb(29, 28, 28);
+      
+      margin: auto;
+      
+      text-align: center;
+      border-radius: 4px;
+      cursor: pointer;
+      border-width: 1px;
+      border-color: blanchedalmond;
+
     }
-</style>
-<title>Negative page</title>
+
+    .btn1 {
+      background-color: #68cfee
+    }
+
+    .btn2 {
+      background-color: #68ee95
+    }
+
+    .btn1:hover {
+      background-color: #1aadda
+    }
+
+    .btn2:hover {
+      background-color: #24e063
+    }
+  </style>
+  <title>Negative page</title>
 </head>
 
 <body>
@@ -41,7 +52,9 @@
     {% endfor %}
   </div>
 
-  <button type="button" class="btn" onclick="location.href='/'">Home</button>
+  <button type="button" class="btn1 btn" onclick="location.href='/'">Home</button>
+  <button type="button" class="btn2 btn" onclick="location.href='/pos'">Top positive Tweets</button>
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js" crossorigin="anonymous"></script>

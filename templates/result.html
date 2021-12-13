@@ -9,28 +9,38 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='result.css') }}">
   <style>
-    .btn1,.btn2,.btn3{
-      width: fit-content;;
-      background-color: #0aa3a3;
+    .btn {
+      width: fit-content;
+      
       color: rgb(29, 28, 28);
-      padding: 14px 20px;
+      
       margin: auto;
-      margin: 1%;
+      
+      text-align: center;
       border-radius: 4px;
       cursor: pointer;
-      border-color: blue;
       border-width: 1px;
-      
+      border-color: blanchedalmond;
+
+    }
+    .btn1 {
+      background-color: #68cfee
     }
     .btn1:hover {
-      background-color: #8dbd8d    
+      background-color: #1aadda
+    }
+
+    .btn2 {
+      background-color: #f07b45
     }
     .btn2:hover {
-      background-color: #bce4b7; 
+      background-color: #d42d10
+    }
+    .btn3 {
+      background-color: #68ee95
     }
     .btn3:hover {
-      background-color: #a7c2af;
-      
+      background-color: #24e063
     }
   </style>
   <title>Sentiment Analysis Page</title>
@@ -55,9 +65,9 @@
     <h4>Wordcloud For Negative Tweets</h4>
     <img src="/static/wordcld_n.png" width="100%" height="100%">
   </div>
-  <button type="button" class="btn1" onclick="location.href='/'">Home Page</button>
-  <button type="button" class="btn3" onclick="location.href='/pos'">Top positive Tweets</button>
-  <button type="button" class="btn2" onclick="location.href='/neg'">Top Negative Tweets</button>
+  <button type="button" class="btn1 btn" onclick="location.href='/'">Home Page</button>
+  <button type="button" class="btn3 btn" onclick="location.href='/pos'">Top positive Tweets</button>
+  <button type="button" class="btn2 btn" onclick="location.href='/neg'">Top Negative Tweets</button>
   
   <!-- Optional JavaScript -->
   {{demo_script_code|safe}}
