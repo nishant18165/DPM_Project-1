@@ -40,15 +40,24 @@ api = tweepy.API(auth)
 ##########################################################
 ###############################################
 
-def get_tweetsdf(topic):
+def get_tweetsdf(topic,typ):
     tweetList = []
     userList = []
     likesList = []
     datetimeList = []
     locationList = []
-    Query = topic + "-filter:retweets"
-    cursor = tweepy.Cursor(api.search_tweets, q=Query, lang="en",
-                           tweet_mode="extended", exclude="retweets").items(200)
+
+    if(typ == 'person'):
+        cursor = api.user_timeline(screen_name= topic, 
+                           count=200,
+                           include_rts = False,
+                           tweet_mode = 'extended'
+                           )
+    else:
+
+        Query = topic + "-filter:retweets"
+        cursor = tweepy.Cursor(api.search_tweets, q=Query, lang="en",
+                            tweet_mode="extended", exclude="retweets").items(200)
     for t in cursor:
         tweetList.append(t.full_text)
         userList.append(t.user.name)
@@ -61,6 +70,7 @@ def get_tweetsdf(topic):
     return df
 
 ##########################################################
+"""
 def getpersonal(userid):
     tweetList = []
     userList = []
@@ -86,6 +96,7 @@ def getpersonal(userid):
     df =  pd.DataFrame({"User Name":userList,"Tweets":tweetList,"Likes":likesList,
                             "Date Time":datetimeList,"Location":locationList })
     return df
+"""
 ###################################################
 
 def get_polarity_dataframe(df):
@@ -144,11 +155,10 @@ def get_polarity_dataframe(df):
 
 def get_polarity_plot(topic, p_type, typ='movies'):
     # get dataframe from topic
-    if(typ =='person'):
-        print('person')
-        df1 = getpersonal(userid=topic)
-    else:
-        df1 = get_tweetsdf(topic=topic)
+    
+    print(typ)
+    df1 = get_tweetsdf(topic=topic,typ = typ)
+   
         # get dataframe with polarity columns
     newdf = get_polarity_dataframe(df1)
 
@@ -331,10 +341,10 @@ def subject():
             subject_name = request.form['subject@name']
             # no_tweet=request.form['no@tweet']
             p_type = request.form['p_type']
-            pold = get_polarity_dataframe(get_tweetsdf(subject_name))
+            pold = get_polarity_dataframe(get_tweetsdf(subject_name,'subject'))
             global final_n,final_p
             final_p,final_n = helper(pold)
-            p1 = get_polarity_plot(str(subject_name), str(p_type))
+            p1 = get_polarity_plot(str(subject_name), str(p_type),'subject')
             demo_script_code, chart_code = components(p1)
             return render_template('result.html', chart_code=chart_code, demo_script_code=demo_script_code,
                                table1=[final_p.to_html(
@@ -358,7 +368,7 @@ def personal():
         try:
             person_id = request.form['user_id']
             result_type = request.form['p_type']
-            pold = get_polarity_dataframe(getpersonal(person_id))
+            pold = get_polarity_dataframe(get_tweetsdf(person_id,'person'))
             global final_n,final_p
             final_p, final_n = helper(pold)
             p1 = get_polarity_plot(str(person_id), str(result_type), 'person')
@@ -386,10 +396,10 @@ def movie():
             tmp = valid_movie(movie_name)
             print(tmp[1])
             if(tmp[0] == True):
-                pold = get_polarity_dataframe(get_tweetsdf(tmp[1]))
+                pold = get_polarity_dataframe(get_tweetsdf(tmp[1],'movie'))
                 global final_n,final_p
                 final_p, final_n = helper(pold)
-                p1 = get_polarity_plot(str(tmp[1]), str(result_type))
+                p1 = get_polarity_plot(str(tmp[1]), str(result_type),'movie')
                 demo_script_code, chart_code = components(p1)
                 return render_template('result.html', chart_code=chart_code, demo_script_code=demo_script_code,
                                        table1=[final_p.to_html(
