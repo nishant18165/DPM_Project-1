@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <style>
+  input[type=text],
   select {
     width: 100%;
     padding: 12px 20px;
@@ -12,53 +13,50 @@
   }
 
   input[type=submit] {
-    width: 50%;
-    background: linear-gradient(to right top, yellow, blueviolet) fixed;
+    width: 20%;
+    background-color: #6d8e8f;
     color: white;
     padding: 14px 20px;
-    margin: auto;
-    margin-top: 2%;
+    margin-left: 40%;
+    margin-top: 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
 
   input[type=submit]:hover {
-    background: linear-gradient(to right top, blueviolet ,yellow) fixed;
+    background-color: #394bec;
   }
+
 
   div {
     border-radius: 5px;
-    background: linear-gradient(to right top, blue, red) fixed;
+    background-color: #f2f2f2;
     padding: 20px;
     width: 60%;
-    text-align: center;
     margin: auto;
-  }
+    margin-top: 10%;
 
-  body {
-    background-image: url("./static/i1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  body {
-    margin: 0;
-    height: 100vh;
   }
 
   h2 {
     margin: 75px 50px 30px 100px;
     padding: 20px;
     text-align: center;
-    color: blanchedalmond;
+  }
+
+  body {
+    background-image: url('./static/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 2000px 1000px;
   }
 </style>
+<title>Twitter Data Sentiment Analysis</title>
 
 <body>
 
   <h2>Twitter Sentiment analysis</h2>
+
 
   <div>
     <form action="/" method="POST" class="form">
@@ -68,14 +66,15 @@
         <option value="none" selected disabled hidden>Select topic of analysis</option>
         <option value="movie">Movie Review</option>
         <option value="subject">Sentiment towards a subject</option>
-        <option value="leader">Sentiment towards a leader</option>
         <option value="person">Sentiment analysis of tweets of person</option>
       </select>
       <!-- <label for="sub"><b>Enter the subject</b></label>
     <input type="text" id="sub" name="sub" placeholder="Ex- Narendra Modi"> -->
 
       <input type="submit" value="Submit">
+
     </form>
+
   </div>
 
 </body>

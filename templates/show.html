@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='show.css') }}">
+  <style>
+    .btn1,.btn2,.btn3{
+      width: fit-content;;
+      background-color: #0aa3a3;
+      color: rgb(29, 28, 28);
+      padding: 14px 20px;
+      margin: auto;
+      margin: 1%;
+      border-radius: 4px;
+      cursor: pointer;
+      border-color: blue;
+      border-width: 1px;
+      
+    }
+    .btn1:hover {
+      background-color: #8dbd8d    
+    }
+    .btn2:hover {
+      background-color: #bce4b7; 
+    }
+    .btn3:hover {
+      background-color: #a7c2af;
+      
+    }
+  </style>
+  <title>Sentiment Analysis Page</title>
+</head>
+
+<body>
+  
+<div class="head">
+  <h1 class=" h4 m-1"><b>Sentiment Analysis Page</b></h1>
+</div>
+  <div class="plot">
+
+    {{chart_code|safe}}
+  </div>
+  <br>
+
+  <div class="div1">
+    <h4>Wordcloud For Positive Tweets</h4>
+    <img src="/static/wordcld_p.png" width="500" height="450">
+  </div>
+  <div class="div2">
+    <h4>Wordcloud For Negative Tweets</h4>
+    <img src="/static/wordcld_n.png" width="500" height="450">
+  </div>
+  <button type="button" class="btn1" onclick="location.href='/'">Home Page</button>
+  <button type="button" class="btn3" onclick="location.href='/pos'">Top positive Tweets</button>
+  <button type="button" class="btn2" onclick="location.href='/neg'">Top Negative Tweets</button>
+  
+  <!-- Optional JavaScript -->
+  {{demo_script_code|safe}}
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.0.min.js" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
